@@ -34,7 +34,7 @@ var router = express.Router();              // get an instance of the express Ro
 
 // test route to make sure everything is working (accessed at GET http://localhost:3000/)
 router.post('/', function(req, res) {
-    Records.find({"key":req.body.key}, function(err, data) {
+    Records.find({"key":req.body.key},'-_id', function(err, data) {
         if (err){
             res.send(err);
         }
