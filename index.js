@@ -17,7 +17,7 @@ var mongoose   = require('mongoose');
 mongoose.connect('mongodb://dbUser:dbPassword@ds155428.mlab.com:55428/getir-bitaksi-hackathon');
 
 //importing our schema
-var Response     = require('./models/response');
+var Records     = require('./models/response');
 
 
 
@@ -34,7 +34,12 @@ var router = express.Router();              // get an instance of the express Ro
 
 // test route to make sure everything is working (accessed at GET http://localhost:3000/)
 router.post('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });
+    Records.find({"key":req.body.key}, function(err, data) {
+        if (err){
+            res.send(err);
+        }
+        res.json(data);
+    });
 });
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /
