@@ -4,10 +4,10 @@
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 //setting up response schema
-var ResponseSchema   = new Schema({
+var Records   = new Schema({
     key: String,
     value: String,
     createdAt: String
 });
 //export schema to use
-module.exports = mongoose.model('Response', ResponseSchema);
+module.exports = mongoose.model('Records', Records);
