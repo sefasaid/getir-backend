@@ -11,6 +11,11 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var mongoose   = require('mongoose');
+
+//Connecting to mongodb from getirdb
+mongoose.connect('mongodb://dbUser:dbPassword@ds155428.mlab.com:55428/getir-bitaksi-hackathon');
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
