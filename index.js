@@ -16,6 +16,10 @@ var mongoose   = require('mongoose');
 //Connecting to mongodb from getirdb
 mongoose.connect('mongodb://dbUser:dbPassword@ds155428.mlab.com:55428/getir-bitaksi-hackathon');
 
+//importing our schema
+var Response     = require('./models/response');
+
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
