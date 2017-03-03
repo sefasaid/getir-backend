@@ -25,7 +25,14 @@ var Records     = require('./models/response');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+var timeout = require('connect-timeout'); //express v4
 
+app.use(timeout(120000));
+app.use(haltOnTimedout);
+
+function haltOnTimedout(req, res, next){
+    if (!req.timedout) next();
+}
 var port = process.env.PORT || 3000;        // set our port
 
 // ROUTES FOR OUR API
