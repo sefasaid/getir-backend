@@ -33,7 +33,7 @@ var port = process.env.PORT || 3000;        // set our port
 var router = express.Router();              // get an instance of the express Router
 
 // test route to make sure everything is working (accessed at GET http://localhost:3000/)
-router.post('/', function(req, res) {
+router.post('/getRecord', function(req, res) {
     Records.findOne({"key":req.body.key},'-_id', function(err, data) {
         if (err){
             res.send(err);
@@ -43,7 +43,7 @@ router.post('/', function(req, res) {
 });
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /
-app.use('/getRecord', router);
+app.use('/', router);
 
 // START THE SERVER
 // =============================================================================
