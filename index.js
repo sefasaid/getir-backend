@@ -43,7 +43,7 @@ router.post('/', function(req, res) {
 });
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /
-app.use('/', router);
+app.use('/getRecord', router);
 
 // START THE SERVER
 // =============================================================================
